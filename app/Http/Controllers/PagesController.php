@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Main;
 
 class PagesController extends Controller
 {
@@ -15,10 +16,15 @@ class PagesController extends Controller
     {
         return view('pages.dashboard');
     }
+    //main section on dashboard
     public function show_main_section()
     {
-        return view('pages.mainSection');
+        $main = Main::first();
+        return view('pages.mainSection', compact('main'));
     }
+
+
+
     public function show_edit_service()
     {
         return view('pages.editService');
