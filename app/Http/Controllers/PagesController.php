@@ -9,7 +9,8 @@ class PagesController extends Controller
 {
     public function welcomePage()
     {
-        return view('pages.index');
+        $data = Main::first();
+        return view('pages.index', compact('data'));
     }
     
     public function dashboard()

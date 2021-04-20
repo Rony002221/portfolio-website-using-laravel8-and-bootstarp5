@@ -37,11 +37,11 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
+        <header class="masthead" style="background-image: url(<?php echo $data->bg_img ?>)">
             <div class="container">
-                <div class="masthead-subheading">Welcome To Our Studio!</div>
-                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+                <div class="masthead-subheading">{{$data->sub_title}}</div>
+                <div class="masthead-heading text-uppercase">{{$data->title}}</div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{$data->resume}}">Resume</a>
             </div>
         </header>
         <!-- Services-->
