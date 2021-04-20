@@ -22,3 +22,4 @@ Route::get('/my_dashboard/edit_service', [PagesController::class, 'show_edit_ser
 Route::get('/my_dashboard/edit_aboutMe', [PagesController::class, 'show_edit_aboutMe'])->name('dashboard.edit_aboutMe');
 Route::get('/my_dashboard/edit_contactMe', [PagesController::class, 'show_edit_contactMe'])->name('dashboard.edit_contactMe');
 Route::get('/my_dashboard/edit_portfolio', [PagesController::class, 'show_edit_portfolio'])->name('dashboard.edit_portfolio');
+Route::put('/my_dashboard/dashboard_mainSection', [PagesController::class, 'dashboard_mainSection'])->name('update.mainSection');
