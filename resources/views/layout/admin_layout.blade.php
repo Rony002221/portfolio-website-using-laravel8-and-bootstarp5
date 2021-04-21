@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Static Navigation - SB Admin</title>
+        <title>MHR Dashboard</title>
         <link href="{{asset('css/dashboard_style.css')}}" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -50,10 +50,18 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                                 Main Section
                             </a>
-                            <a class="nav-link" href="{{route('dashboard.edit_service')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tasks"></i></div>
-                                Services
+                            
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Service
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{route('service_create')}}">Create</a>
+                                    <a class="nav-link" href="{{route('service_list')}}">List</a>
+                                </nav>
+                            </div>
                             
                             <a class="nav-link" href="{{route('dashboard.edit_portfolio')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tasks"></i></div>

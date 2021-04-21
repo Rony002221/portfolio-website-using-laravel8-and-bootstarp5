@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Main;
+use App\Models\Service;
 
 class PagesController extends Controller
 {
     public function welcomePage()
     {
         $data = Main::first();
-        return view('pages.index', compact('data'));
+        $showData = Service::all();
+        return view('pages.index', compact('data','showData'));
     }
     
     public function dashboard()
@@ -24,12 +26,45 @@ class PagesController extends Controller
         return view('pages.mainSection', compact('main'));
     }
 
-
+    //service section
 
     public function show_edit_service()
     {
         return view('pages.editService');
     }
+    
+    public function dashboard_serviceSection()
+    {
+        return view('pages.service.createService');
+    }
+    public function dashboard_serviceDataCreate(Request $req)
+    {
+        $this->validate($req, [
+
+            'icon'=> "required|string",
+            'title'=> "required|string",
+            'description'=> "required|string",
+        ]);
+
+        $service = new Service();
+        $service->icon = $req->icon;
+        $service->title = $req->title;
+        $service->description = $req->description;
+
+        $service->save();
+
+        return redirect()->route('service_create')->with('msg', 'Change Data successfully !!');
+    }
+
+    public function dashboard_serviceList()
+    {
+        $list = Service::all();
+        return view('pages.service.serviceList', compact('list'));
+    }
+
+
+
+
     public function show_edit_aboutMe()
     {
         return view('pages.editAboutMe');

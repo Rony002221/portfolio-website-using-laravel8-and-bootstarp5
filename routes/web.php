@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,7 @@ Route::get('/my_dashboard/edit_aboutMe', [PagesController::class, 'show_edit_abo
 Route::get('/my_dashboard/edit_contactMe', [PagesController::class, 'show_edit_contactMe'])->name('dashboard.edit_contactMe');
 Route::get('/my_dashboard/edit_portfolio', [PagesController::class, 'show_edit_portfolio'])->name('dashboard.edit_portfolio');
 Route::put('/my_dashboard/dashboard_mainSection', [PagesController::class, 'dashboard_mainSection'])->name('update.mainSection');
+Route::get('/my_dashboard/service_create', [PagesController::class, 'dashboard_serviceSection'])->name('service_create');
+Route::post('/my_dashboard/service_create', [PagesController::class, 'dashboard_serviceDataCreate'])->name('add_service');
+Route::get('/my_dashboard/service_list', [PagesController::class, 'dashboard_serviceList'])->name('service_list');
+
