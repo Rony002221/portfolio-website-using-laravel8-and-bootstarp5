@@ -27,4 +27,7 @@ Route::put('/my_dashboard/dashboard_mainSection', [PagesController::class, 'dash
 Route::get('/my_dashboard/service_create', [PagesController::class, 'dashboard_serviceSection'])->name('service_create');
 Route::post('/my_dashboard/service_create', [PagesController::class, 'dashboard_serviceDataCreate'])->name('add_service');
 Route::get('/my_dashboard/service_list', [PagesController::class, 'dashboard_serviceList'])->name('service_list');
+Route::get('/my_dashboard/edit_service_list/{id}', [PagesController::class, 'dashboard_edit_serviceList'])->name('edit_service');
+Route::put('/my_dashboard/update_service_list/{id}', [PagesController::class, 'dashboard_update_serviceList'])->name('update_service');
+Route::delete('/my_dashboard/delete_service_list/{id}', [PagesController::class, 'dashboard_delete_serviceList'])->name('delete_service');
 

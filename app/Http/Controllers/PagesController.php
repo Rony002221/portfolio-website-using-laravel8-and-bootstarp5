@@ -61,6 +61,31 @@ class PagesController extends Controller
         $list = Service::all();
         return view('pages.service.serviceList', compact('list'));
     }
+    public function dashboard_delete_serviceList($id)
+    {
+        Service::destroy($id);
+        return redirect()->route('service_list')->with('msg', "Deleted Successfully !!");
+    }
+
+    
+    public function dashboard_edit_serviceList($id)
+    {
+        $x['edit_data'] = Service::where('id', $id)->first();
+        return view('pages.service.editList', $x);
+    }
+    public function dashboard_update_serviceList(Request $req, $id)
+    {
+        Service::findOrFail($id)->update([
+            'icon' => $req->icon,
+            'title' => $req->title,
+            'description' => $req->description,
+
+        ]);
+
+        return redirect()->route('service_list');
+    }
+
+    
 
 
 
@@ -83,8 +108,8 @@ class PagesController extends Controller
     {
         $this->validate($request, [
 
-            'title'=> "required|string",
-            'sub_title'=> "required|string",
+            'title'=> 'required|string',
+            'sub_title'=> 'required|string',
         ]);
 
         $main = Main::first();
@@ -110,4 +135,4 @@ class PagesController extends Controller
     }
 
 
-}
+    }
