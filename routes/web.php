@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\PortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,10 @@ Route::get('/my_dashboard/service_list', [PagesController::class, 'dashboard_ser
 Route::get('/my_dashboard/edit_service_list/{id}', [PagesController::class, 'dashboard_edit_serviceList'])->name('edit_service');
 Route::put('/my_dashboard/update_service_list/{id}', [PagesController::class, 'dashboard_update_serviceList'])->name('update_service');
 Route::delete('/my_dashboard/delete_service_list/{id}', [PagesController::class, 'dashboard_delete_serviceList'])->name('delete_service');
+
+
+
+Route::get('/my_dashboard/portfolio_create', [PortfolioController::class, 'dashboard_portfolio_create'])->name('portfolio_create');
+Route::get('/my_dashboard/portfolio_list', [PortfolioController::class, 'dashboard_portfolio_list'])->name('portfolio_list');
+Route::post('/my_dashboard/portfolio_add', [PortfolioController::class, 'dashboard_portfolio_insert'])->name('insert_portfolio');
 

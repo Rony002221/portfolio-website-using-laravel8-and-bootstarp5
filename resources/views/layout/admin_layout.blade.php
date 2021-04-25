@@ -62,11 +62,19 @@
                                     <a class="nav-link" href="{{route('service_list')}}">List</a>
                                 </nav>
                             </div>
-                            
-                            <a class="nav-link" href="{{route('dashboard.edit_portfolio')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tasks"></i></div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Portfolio
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{route('portfolio_create')}}">Create</a>
+                                    <a class="nav-link" href="{{route('portfolio_list')}}">List</a>
+                                </nav>
+                            </div>
+                            
+                            
 
                             <a class="nav-link" href="{{route('dashboard.edit_aboutMe')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
