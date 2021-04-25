@@ -4,8 +4,7 @@
     
 <main>
     <div class="container-fluid">
-        <h1 class="mt-4">Edit Data</h1>
-
+        <h1 class="mt-4">Edit Portfolio Section</h1>
         <div class="container mt-4">
 
             {{-- @if (session('msg'))
@@ -16,34 +15,54 @@
                 <!--<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>-->
                 </div>
 
-
-
             @endif --}}
             
-            <form action="{{route('update_service',$edit_data->id)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('update_portfolio',$data->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Font Awesome Icon Class Name</span>
-                    <input type="text" name = "icon" class="form-control" value="{{$edit_data->icon}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                  </div>
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
-                    <input type="text" name="title" class="form-control" value="{{$edit_data->title}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                  </div>
-                  <div class="form-floating">
-                    <label for="floatingTextarea2"><h4>Description</h4></label>
-                    <textarea class="form-control" name="description" value="{{$edit_data->description}}"  id="floatingTextarea2" style="height: 100px"></textarea>
-                    
-                  </div>
-                  <br><br>
+                <div class="container">
+                  <div class="row">
+                      <div class="col">
+                          <img src="{{asset('img/'.$data->p_img)}}" name = "" class="img-thumbnail mb-3" alt="...">
 
-                  <button type="submit" class="btn btn-primary">Update</button>
+                          <label for="formFile" class="form-label"><h4>Upload Image</h4></label>
+                          <input class="form-control" name = "photo" type="file" id="formFile">
+                      </div>
+                      <div class="col">
+                          <label for="floatingInputValue"><h4> Project Name :  </h4></label>
+                          {{-- @error('title')
+                              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                  {{$message}}
+                              </div>
+                          @enderror --}}
+                          <input type="text" name = "p_name" value="{{$data->p_name}}" class="form-control mb-4" placeholder="Type Your Project Name here ..." value="">
+                        
+                          <label for="floatingInputValue"><h4>Title</h4></label>
+                          {{-- @error('sub_title')
+                              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                  {{$message}}
+                              </div>
+                           @enderror --}}
+                          <input type="text" name = "p_title" value="{{$data->p_title}}" class="form-control mb-3" placeholder="Type The Title ..." value="">
+                        
+                          <div class="form-floating">
+                            <label for="floatingTextarea2"><h4>Description</h4></label>
+                            <textarea class="form-control" name="p_description" value="{{$data->p_description}}" placeholder="write description here....." id="floatingTextarea2" style="height: 100px"></textarea>
+                      
+                          </div>
+                          <br><br>
+                          
+                      </div>
+
+                  </div>
+                  <button type="submit" class="btn btn-success mt-3">Update Now</button>
+              </div>
             </form>
         
-        </div>
-                        
+        </div>   
+        
+
     </div>
 </main>
 

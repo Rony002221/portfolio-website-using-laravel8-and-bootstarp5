@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Main;
 use App\Models\Service;
+use App\Models\Portfolio;
 
 class PagesController extends Controller
 {
@@ -12,7 +13,8 @@ class PagesController extends Controller
     {
         $data = Main::first();
         $showData = Service::all();
-        return view('pages.index', compact('data','showData'));
+        $portfolioData = Portfolio::all();
+        return view('pages.index', compact('data','showData','portfolioData'));
     }
     
     public function dashboard()

@@ -18,6 +18,8 @@ use App\Http\Controllers\PortfolioController;
 
 
 Route::get('/', [PagesController::class, 'welcomePage'])->name('home');
+
+
 Route::get('/my_dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
 Route::get('/my_dashboard/edit_main_section', [PagesController::class, 'show_main_section'])->name('dashboard.main_section');
 Route::get('/my_dashboard/edit_service', [PagesController::class, 'show_edit_service'])->name('dashboard.edit_service');
@@ -37,4 +39,7 @@ Route::delete('/my_dashboard/delete_service_list/{id}', [PagesController::class,
 Route::get('/my_dashboard/portfolio_create', [PortfolioController::class, 'dashboard_portfolio_create'])->name('portfolio_create');
 Route::get('/my_dashboard/portfolio_list', [PortfolioController::class, 'dashboard_portfolio_list'])->name('portfolio_list');
 Route::post('/my_dashboard/portfolio_add', [PortfolioController::class, 'dashboard_portfolio_insert'])->name('insert_portfolio');
+Route::get('/my_dashboard/portfolio_edit/{id}', [PortfolioController::class, 'dashboard_portfolio_edit'])->name('edit_portfolio');
+Route::put('/my_dashboard/portfolio_update/{id}', [PortfolioController::class, 'dashboard_portfolio_update'])->name('update_portfolio');
+Route::delete('/my_dashboard/portfolio_delete', [PortfolioController::class, 'dashboard_portfolio_delete'])->name('delete_portfolio');
 
