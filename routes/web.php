@@ -41,5 +41,5 @@ Route::get('/my_dashboard/portfolio_list', [PortfolioController::class, 'dashboa
 Route::post('/my_dashboard/portfolio_add', [PortfolioController::class, 'dashboard_portfolio_insert'])->name('insert_portfolio');
 Route::get('/my_dashboard/portfolio_edit/{id}', [PortfolioController::class, 'dashboard_portfolio_edit'])->name('edit_portfolio');
 Route::put('/my_dashboard/portfolio_update/{id}', [PortfolioController::class, 'dashboard_portfolio_update'])->name('update_portfolio');
-Route::delete('/my_dashboard/portfolio_delete', [PortfolioController::class, 'dashboard_portfolio_delete'])->name('delete_portfolio');
+Route::delete('/my_dashboard/portfolio_delete/{id}', [PortfolioController::class, 'dashboard_portfolio_delete'])->name('delete_portfolio');
 

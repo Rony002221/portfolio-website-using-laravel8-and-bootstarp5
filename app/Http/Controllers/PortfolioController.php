@@ -35,6 +35,12 @@ class PortfolioController extends Controller
         return view('pages.portfolio.editPortfolio', compact('data'));
         
     }
+    public function dashboard_portfolio_delete($id)
+    {
+        $data = Portfolio::where('id', $id)->delete();
+        return redirect()->route('portfolio_list')->with('msg', 'Portfolio Deleted successfully !!!');
+        
+    }
     public function dashboard_portfolio_update(Request $req, $id)
     {
         $img = time(). '-'. $req->photo->getClientOriginalName();
